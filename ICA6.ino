@@ -23,7 +23,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("with length ");
   Serial.println(length);
   Serial.println("Message:");
-  if (length == 6) digitalWrite(LED, HIGH); else digitalWrite(LED, LOW);
+  if (length == 6) digitalWrite(LED_BUILTIN, HIGH); else digitalWrite(LED_BUILTIN, LOW);
   Serial.write(payload, length);
   Serial.println();
 }
@@ -62,6 +62,8 @@ void setup()
   // We are connected and have an IP address.
   // Print the WiFi status.
   printWifiStatus();
+ 
+ pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop()
